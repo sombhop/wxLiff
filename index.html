@@ -77,25 +77,26 @@
     
     function openWindow() {
       liff.openWindow({
-        url: "https://line.me",
-        external: true
+        url: "https://weather.tmd.go.th",
+        external: true   // external and in app
       })
     }
 
     async function getFriendship() {
-      const friend = await liff.getFriendship()
+      const friend = await liff.getFriendship() //get T or F
       document.getElementById("friendship").append(friend.friendFlag)
       if (!friend.friendFlag) {
         if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@YOUR-BOT-ID"
+          window.location = "https://line.me/R/ti/p/@178yfyoa"
         }
       }
     }
 
     async function sendMsg() {
-      if (liff.getContext().type !== "none") {
+      if (liff.getContext().type !== "none") { //has 5 forms : utou,id,groupid,roomid,none
+        //promise then has to use await 
         await liff.sendMessages([
-          {
+          { //can be up to 5 bubbles,here is only 1
             "type": "sticker",
             "stickerId": 1,
             "packageId": 1
