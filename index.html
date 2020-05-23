@@ -80,14 +80,14 @@
     	document.getElementById("version").append(liff.getVersion())
     	document.getElementById("accessToken").append(liff.getAccessToken())
     	document.getElementById("isInClients").append(liff.isInClient())
-    	if(liff.isInClient()){
+    	
+    	if(liff.isInClient()){ //open in Line app
     		document.getElementById("btnLogOut").style.display="none"
     	}else{ // in external browser hide these buttons.
     		document.getElementById("btnMsg").style.display="none"
     		document.getElementById("btnScanCode").style.display="none"
     		document.getElementById("btnClose").style.display="none"    		
     	}
-    }
     }
 
     async function main() {
